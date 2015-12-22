@@ -20,16 +20,16 @@ class MyFrame(wx.Frame):
         self.sizer.Add(wx.Panel(self.MainPanel, -1,  size=(18, 88)))
         self.sizer.Add(wx.Panel(self.MainPanel, -1,  size=(18, 88))) 
         
-        #adding 1 empty(spacer) panel to left to center main panels  
+        #adding 1 empty(spacer) panel to the left in order to center main panels  
         self.sizer.Add(wx.Panel(self.MainPanel, -1,  size=(58, 8)))        
         
         #adding first main panel     
         self.sizer.Add(self.panel1, 1)
         
-        #adding 1 empty(spacer) panel to right to center main panels  
+        #adding 1 empty(spacer) panel to the right in order to center main panels  
         self.sizer.Add(wx.Panel(self.MainPanel, -1,  size=(8, 8)))
         
-        #adding 1 empty(spacer) panel to left to center main panels  
+        #adding 1 empty(spacer) panel to the left in order to center main panels  
         self.sizer.Add(wx.Panel(self.MainPanel, -1,  size=(50, 0)))   
                 
         #adding second main panel        
@@ -48,6 +48,8 @@ class MyFrame(wx.Frame):
 
         self.CreateSubPanel1()
         self.CreateSubPanel2()
+        self.CreateSubPanel3()
+        self.CreateSubPanel4()
         
         sizer.Add(self.SubPanel1)
         sizer.Add(self.SubPanel2)
@@ -101,18 +103,23 @@ class MyFrame(wx.Frame):
         label = wx.StaticText(self.SubPanel2, label="Sorted Data")
         sizer.Add(label)
         
-        #To add the other boxes, repeat what I did with the previous two boxes.
+        #To add the other textboxes, repeat what I did with the previous two boxes.
         
         self.SubPanel2.SetSizer(sizer)
         
     def CreateSubPanel3(self):
+        #There is already information for the text boxes. You can repeat them here. For the file browsing, you could google "wxPython file browser".
+        #You will need to make a sizer for this panel. Remember for FlexGridSizer, the parameters are (rows, columns, vertical spacing in pixels, and horizontal spacing in pixels)
         print "In 3"
         
     def CreateSubPanel4(self):
+        #There is already information for the text boxes. You can repeat them here. For the incrementers on the side of the textboxes, you could google"wxPython SpincCtrl".    
+        #You will need to make a sizer for this panel. Remember for FlexGridSizer, the parameters are (rows, columns, vertical spacing in pixels, and horizontal spacing in pixels)       
         print "In 4"
 
     def CreateMainPanel2(self):
-        #There is only one panel here, so there is no need for a new sizer
+        #There is already information for the text boxes. You can repeat them here. You can find out how to use wx buttons through Google.    
+        #You will need to make a sizer for this panel. Remember for FlexGridSizer, the parameters are (rows, columns, vertical spacing in pixels, and horizontal spacing in pixels)
         print "InPanel2"    
 
     def OnEnterADD(self, event):
@@ -122,6 +129,7 @@ class MyFrame(wx.Frame):
         
 class MyApp(wx.App):
      def OnInit(self):
+         #You can change the name by replacing 'GUI.py'
          frame = MyFrame(None, -1, 'GUI.py')
          frame.Show(True)
          return True
