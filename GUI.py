@@ -1,10 +1,10 @@
 import wx
 class MyFrame(wx.Frame):
     def __init__(self, parent, id, title):
-        wx.Frame.__init__(self, parent, id, title, size=(700, 900))
+        wx.Frame.__init__(self, parent, id, title, size=(900, 950))
         self.MainPanel = wx.Panel(self, -1)
-        self.panel1 = wx.Panel(self.MainPanel, -1, size=(576, 470), style = wx.SUNKEN_BORDER)
-        self.panel2 = wx.Panel(self.MainPanel, -1, size=(576, 180), style = wx.SUNKEN_BORDER)
+        self.panel1 = wx.Panel(self.MainPanel, -1, style = wx.SUNKEN_BORDER)
+        self.panel2 = wx.Panel(self.MainPanel, -1, size=(758, 180), style = wx.SUNKEN_BORDER)
         self.CreateMainPanel1()
         self.CreateMainPanel2()
         self.Create_Layout()
@@ -12,8 +12,6 @@ class MyFrame(wx.Frame):
 
     #This creates the layout for the two main panels. The first main panel contains 4 smaller panels and the second main panel contains 1 smaller panel
     def Create_Layout(self):
-
-        
         # 3x3 array for the panels. 7 of the panels will be spacers
         self.sizer = wx.FlexGridSizer(3, 3, 2, 2)
         
@@ -42,12 +40,11 @@ class MyFrame(wx.Frame):
         
     def CreateMainPanel1(self):
         sizer = wx.FlexGridSizer(2, 2, 4, 4)
-        #self.SubPanel1 = wx.Panel(self.MainPanel, -1, size=(580, 470), style = wx.SUNKEN_BORDER)
         
-        self.SubPanel1 = wx.Panel(self.panel1, -1, size=(330, 220), style = wx.RAISED_BORDER)
-        self.SubPanel2 = wx.Panel(self.panel1, -1, size=(240, 220), style = wx.RAISED_BORDER)
-        self.SubPanel3 = wx.Panel(self.panel1, -1, size=(330, 220), style = wx.RAISED_BORDER)
-        self.SubPanel4 = wx.Panel(self.panel1, -1, size=(240, 220), style = wx.RAISED_BORDER)
+        self.SubPanel1 = wx.Panel(self.panel1, -1, size=(400, 260), style = wx.RAISED_BORDER)
+        self.SubPanel2 = wx.Panel(self.panel1, -1, size=(350, 260), style = wx.RAISED_BORDER)
+        self.SubPanel3 = wx.Panel(self.panel1, -1, size=(400, 260), style = wx.RAISED_BORDER)
+        self.SubPanel4 = wx.Panel(self.panel1, -1, size=(350, 260), style = wx.RAISED_BORDER)
 
         sizer.Add(self.SubPanel1)
         sizer.Add(self.SubPanel2)
@@ -62,8 +59,10 @@ class MyFrame(wx.Frame):
 
 class MyApp(wx.App):
      def OnInit(self):
-         frame = MyFrame(None, -1, 'wxBoxSizer.py')
+         frame = MyFrame(None, -1, 'GUI.py')
          frame.Show(True)
          return True
-app = MyApp(0)
-app.MainLoop()
+
+if __name__ == '__main__':
+    app = MyApp(0)
+    app.MainLoop()
